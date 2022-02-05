@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import com.meuprojeto.meuapp.model.Categoria;
 import com.meuprojeto.meuapp.repository.CategoriaRepository;
@@ -50,7 +51,7 @@ public class CategoriaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void adicionar (@RequestBody Categoria categoria, HttpServletResponse response) {
+    public void adicionar (@RequestBody @Valid Categoria categoria, HttpServletResponse response) {
         Categoria categoriaAdicionada = categoriaRepository.save(categoria);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
