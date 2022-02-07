@@ -13,6 +13,7 @@ import com.meuprojeto.meuapp.repository.PessoaRepository;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,6 +45,8 @@ public class PessoaController {
 
     }
 
+    // poderia ser para classe, ou para aplicação inteira
+    @CrossOrigin(maxAge = 10 ,origins = {"http://localhost:4200"})
     @GetMapping
     public ResponseEntity<?> buscarTodas() {
 
